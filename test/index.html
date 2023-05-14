@@ -1,0 +1,33 @@
+// create form registration 
+ 
+$form = $this->createForm(RegistrationType::class, $user);
+// handle form registration
+$form->handleRequest($request);
+if ($form->isSubmitted() && $form->isValid()) {
+    // encode the plain password
+    $user->setPassword(
+
+        $this->get('security.password_encoder')
+        ->encodePassword($user, $user->getPlainPassword())
+        );
+        // persist the User object
+        $this->getDoctrine()->getManager()->persist($user);
+        // flush the User object
+        $this->getDoctrine()->getManager()->flush();
+        // login the user
+        $this->get('security.token_storage')->setToken(
+            $this->get('security.token_storage')->getToken()
+            );
+            // login the user
+            $this->get('security.token_storage')->setToken(
+                $this->get('security.token_storage')->getToken()
+                );
+                // login the user
+                $this->get('security.token_storage')->setToken(
+                    $this->get('security.token_storage')->getToken()
+                    );
+                    // login the user
+                    $this->get('security.token_storage')->setToken(
+                        $this->get('security.token_storage')->getToken()
+                        );
+                        
